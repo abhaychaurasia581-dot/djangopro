@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Student</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=3">
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="form-container">
+        <h2>Add Student</h2>
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            {% if object.profile_pic %}
+            <img src="{{ object.profile_pic.url }}" width="120" style="border-radius:10px;">
+            {% else %}
+                <p>No Image</p>
+            {% endif %}
+            <button type="submit">Save Student</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

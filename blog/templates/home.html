@@ -1,0 +1,23 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}?v=10">
+
+<div class="wrapper">
+    <div class="list-container">
+
+        <h2>Student Management System</h2>
+
+        <div class="class-grid">
+            {% for c in classes %}
+            <div class="student-card">
+                <h3>Class {{ c }}</h3>
+
+                <div class="actions">
+                    <a href="/class/{{c}}/add/">Add</a>
+                    <a href="/class/{{c}}/students/">View</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
